@@ -7,7 +7,7 @@ jobs:
       - run:
           name: Build image
          
-  - run:
+      - run:
           name: Build image
           working_directory: test
           command: docker build -t test-docker .
@@ -15,4 +15,3 @@ jobs:
           name: Test image
           command: |
             docker run -d -p 8080:8080 --name built-image test-docker
- 
