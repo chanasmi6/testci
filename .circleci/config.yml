@@ -1,1 +1,18 @@
-version 
+version: 2
+jobs:
+  build:
+    machine: true
+    steps:
+      # ...
+      - run:
+          name: Build image
+         
+  - run:
+          name: Build image
+          working_directory: test
+          command: docker build -t test-docker .
+      - run:
+          name: Test image
+          command: |
+            docker run -d -p 8080:8080 --name built-image test-docker
+ 
